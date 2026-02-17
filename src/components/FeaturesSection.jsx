@@ -6,7 +6,7 @@ const features = [
     iconColor: 'cyan',
     title: 'Predictive Intelligence',
     description:
-      'Ask any question about markets, trends, or outcomes. The Predictor analyzes millions of data points to forecast what comes next.',
+      'Ask any question about markets, trends, or outcomes. The Predictor runs Bayesian models across millions of data points to forecast what comes next.',
   },
   {
     icon: 'fa-solid fa-chart-line',
@@ -20,7 +20,14 @@ const features = [
     iconColor: 'green',
     title: 'Confidence Scoring',
     description:
-      'Every prediction comes with a transparent confidence score, so you know exactly how much weight to give each forecast.',
+      'Every prediction comes with a statistically-calibrated confidence score derived from Monte Carlo simulations, so you know exactly how much weight to give each forecast.',
+  },
+  {
+    icon: 'fa-solid fa-microscope',
+    iconColor: 'amber',
+    title: 'Deep Research',
+    description:
+      'Every prediction is backed by exhaustive research — cross-referencing thousands of sources, academic papers, and live data feeds before generating a forecast.',
   },
 ];
 

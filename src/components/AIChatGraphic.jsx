@@ -13,43 +13,93 @@ function AIChatGraphic() {
       <div className="chat-graphic__body">
         <div className="chat-bubble chat-bubble--user">
           <div className="chat-bubble__label">You</div>
-          What will AAPL stock do next week?
+          Should I go long on AAPL this week?
         </div>
+        {/* Reasoning/Research panel */}
+        <div className="chat-graphic__thinking">
+          <div className="thinking__header">
+            <i className="fa-solid fa-brain"></i>
+            <span className="thinking__title">Reasoning</span>
+            <span className="thinking__status"><i className="fa-solid fa-circle-check"></i> Complete</span>
+            <i className="fa-solid fa-chevron-down thinking__chevron"></i>
+          </div>
+          <div className="thinking__body">
+            <div className="thinking__sources">
+              <div className="thinking__sources-header">
+                <i className="fa-solid fa-magnifying-glass-chart"></i>
+                <span>Analyzing sources</span>
+                <span className="thinking__counter">2,847</span>
+              </div>
+              <div className="thinking__source-list">
+                <div className="thinking__source-item">
+                  <span className="thinking__source-dot thinking__source-dot--done"></span>
+                  SEC 10-Q filings (AAPL)
+                </div>
+                <div className="thinking__source-item">
+                  <span className="thinking__source-dot thinking__source-dot--done"></span>
+                  Reuters market sentiment feed
+                </div>
+                <div className="thinking__source-item">
+                  <span className="thinking__source-dot thinking__source-dot--done"></span>
+                  Options chain data (CBOE)
+                </div>
+                <div className="thinking__source-item">
+                  <span className="thinking__source-dot thinking__source-dot--done"></span>
+                  Technical indicators (RSI, MACD, BB)
+                </div>
+                <div className="thinking__source-item thinking__source-item--faded">
+                  <span className="thinking__source-dot thinking__source-dot--done"></span>
+                  +12 more sources
+                </div>
+              </div>
+            </div>
+            <div className="thinking__math">
+              <div className="thinking__math-label">
+                <i className="fa-solid fa-square-root-variable"></i>
+                <span>Bayesian inference</span>
+              </div>
+              <div className="thinking__formula">
+                P(↑ | D) = <span className="formula__frac"><span className="formula__num">P(D | ↑) · P(↑)</span><span className="formula__den">P(D)</span></span> = <span className="formula__frac"><span className="formula__num">0.82 × 0.61</span><span className="formula__den">0.58</span></span> = <span className="formula__result">0.862</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="chat-bubble chat-bubble--ai">
           <div className="chat-bubble__label">Predictor</div>
-          Based on current momentum indicators, earnings sentiment, and market structure analysis — here is my forecast:
+          Yes — go long. Momentum is bullish with strong upside probability:
         </div>
       </div>
 
       {/* Main chart */}
       <div className="chat-graphic__chart-container">
         <div className="chat-graphic__chart-wrapper">
-          <svg viewBox="0 0 440 130" className="chat-graphic__chart" preserveAspectRatio="none">
+          <svg viewBox="0 0 440 100" className="chat-graphic__chart" preserveAspectRatio="none">
             {/* Grid lines */}
-            <line x1="0" y1="32" x2="440" y2="32" className="chart-grid" />
-            <line x1="0" y1="65" x2="440" y2="65" className="chart-grid" />
-            <line x1="0" y1="98" x2="440" y2="98" className="chart-grid" />
+            <line x1="0" y1="25" x2="440" y2="25" className="chart-grid" />
+            <line x1="0" y1="50" x2="440" y2="50" className="chart-grid" />
+            <line x1="0" y1="75" x2="440" y2="75" className="chart-grid" />
 
             {/* Y-axis labels */}
-            <text x="4" y="30" className="chart-label">$245</text>
-            <text x="4" y="63" className="chart-label">$230</text>
-            <text x="4" y="96" className="chart-label">$215</text>
+            <text x="4" y="23" className="chart-label">$245</text>
+            <text x="4" y="48" className="chart-label">$230</text>
+            <text x="4" y="73" className="chart-label">$215</text>
 
             {/* Confidence band */}
             <polygon
-              points="280,50 310,42 340,35 370,30 400,25 430,22 430,48 400,45 370,42 340,50 310,55 280,50"
+              points="280,42 310,36 340,30 370,26 400,22 430,18 430,40 400,38 370,35 340,42 310,46 280,42"
               className="chart-confidence"
             />
 
             {/* Historical line */}
             <polyline
-              points="30,110 60,95 90,100 120,82 150,88 180,72 210,78 240,62 270,58 280,50"
+              points="30,88 60,76 90,80 120,66 150,70 180,58 210,62 240,50 270,47 280,42"
               className="chart-line-history"
             />
 
             {/* Prediction line */}
             <polyline
-              points="280,50 310,48 340,42 370,35 400,34 430,28"
+              points="280,42 310,40 340,35 370,30 400,28 430,22"
               className="chart-line-prediction"
               style={{
                 strokeDasharray: 200,
@@ -59,17 +109,16 @@ function AIChatGraphic() {
             />
 
             {/* Current point */}
-            <circle cx="280" cy="50" r="3.5" fill="#00c8ff" />
+            <circle cx="280" cy="42" r="3" fill="#00c8ff" />
 
             {/* Prediction end point */}
-            <circle cx="430" cy="28" r="3" className="chart-pulse-dot" />
+            <circle cx="430" cy="22" r="2.5" className="chart-pulse-dot" />
 
             {/* X-axis labels */}
-            <text x="30" y="125" className="chart-label">Mon</text>
-            <text x="120" y="125" className="chart-label">Wed</text>
-            <text x="210" y="125" className="chart-label">Fri</text>
-            <text x="300" y="125" className="chart-label">Mon</text>
-            <text x="390" y="125" className="chart-label">Fri</text>
+            <text x="30" y="96" className="chart-label">Mon</text>
+            <text x="150" y="96" className="chart-label">Wed</text>
+            <text x="270" y="96" className="chart-label">Fri</text>
+            <text x="390" y="96" className="chart-label">Next</text>
           </svg>
         </div>
       </div>

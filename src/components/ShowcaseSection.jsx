@@ -31,6 +31,26 @@ function ShowcaseSection() {
               </div>
               <div className="mockup-msg mockup-msg--ai">
                 Based on current regulatory trends, consumer sentiment data, and manufacturing output — yes, I project a <strong>14% increase</strong> in Q2 EV demand across the EU.
+                <div className="mockup-msg__research-trace">
+                  <div className="research-trace__header">
+                    <i className="fa-solid fa-route"></i>
+                    Research trace
+                  </div>
+                  <div className="research-trace__items">
+                    <span className="research-trace__item">
+                      <i className="fa-solid fa-circle-check"></i> EU regulatory database
+                    </span>
+                    <span className="research-trace__item">
+                      <i className="fa-solid fa-circle-check"></i> Consumer sentiment index
+                    </span>
+                    <span className="research-trace__item">
+                      <i className="fa-solid fa-circle-check"></i> Manufacturing output (Eurostat)
+                    </span>
+                  </div>
+                  <div className="research-trace__math">
+                    &Delta;demand = &beta;<sub>1</sub>(regulation) + &beta;<sub>2</sub>(sentiment) + &epsilon; &rarr; <strong>+14.2%</strong>
+                  </div>
+                </div>
                 <div className="mockup-msg__prediction">
                   <i className="fa-solid fa-arrow-trend-up"></i> Confidence: 91% &nbsp;|&nbsp; Sources: 2,847 data points
                 </div>
@@ -94,6 +114,46 @@ function ShowcaseSection() {
                 <div className="mockup-bar mockup-bar--green" style={{ height: '95%' }}></div>
                 <div className="mockup-bar mockup-bar--cyan" style={{ height: '60%' }}></div>
                 <div className="mockup-bar mockup-bar--purple" style={{ height: '78%' }}></div>
+              </div>
+            </div>
+            <div className="mockup-dashboard__correlation">
+              <div className="mockup-dashboard__chart-title">CORRELATION MATRIX</div>
+              <div className="correlation-matrix">
+                <div className="correlation-matrix__labels-top">
+                  <span></span>
+                  <span>AAPL</span>
+                  <span>GDP</span>
+                  <span>CPI</span>
+                  <span>VIX</span>
+                </div>
+                <div className="correlation-matrix__row">
+                  <span className="correlation-matrix__label">AAPL</span>
+                  <span className="correlation-cell" style={{ background: 'rgba(0, 200, 255, 0.7)' }}>1.00</span>
+                  <span className="correlation-cell" style={{ background: 'rgba(0, 200, 255, 0.35)' }}>0.72</span>
+                  <span className="correlation-cell" style={{ background: 'rgba(239, 68, 68, 0.25)' }}>-0.31</span>
+                  <span className="correlation-cell" style={{ background: 'rgba(239, 68, 68, 0.4)' }}>-0.58</span>
+                </div>
+                <div className="correlation-matrix__row">
+                  <span className="correlation-matrix__label">GDP</span>
+                  <span className="correlation-cell" style={{ background: 'rgba(0, 200, 255, 0.35)' }}>0.72</span>
+                  <span className="correlation-cell" style={{ background: 'rgba(0, 200, 255, 0.7)' }}>1.00</span>
+                  <span className="correlation-cell" style={{ background: 'rgba(0, 200, 255, 0.2)' }}>0.45</span>
+                  <span className="correlation-cell" style={{ background: 'rgba(239, 68, 68, 0.3)' }}>-0.41</span>
+                </div>
+                <div className="correlation-matrix__row">
+                  <span className="correlation-matrix__label">CPI</span>
+                  <span className="correlation-cell" style={{ background: 'rgba(239, 68, 68, 0.25)' }}>-0.31</span>
+                  <span className="correlation-cell" style={{ background: 'rgba(0, 200, 255, 0.2)' }}>0.45</span>
+                  <span className="correlation-cell" style={{ background: 'rgba(0, 200, 255, 0.7)' }}>1.00</span>
+                  <span className="correlation-cell" style={{ background: 'rgba(0, 200, 255, 0.12)' }}>0.22</span>
+                </div>
+                <div className="correlation-matrix__row">
+                  <span className="correlation-matrix__label">VIX</span>
+                  <span className="correlation-cell" style={{ background: 'rgba(239, 68, 68, 0.4)' }}>-0.58</span>
+                  <span className="correlation-cell" style={{ background: 'rgba(239, 68, 68, 0.3)' }}>-0.41</span>
+                  <span className="correlation-cell" style={{ background: 'rgba(0, 200, 255, 0.12)' }}>0.22</span>
+                  <span className="correlation-cell" style={{ background: 'rgba(0, 200, 255, 0.7)' }}>1.00</span>
+                </div>
               </div>
             </div>
           </div>
