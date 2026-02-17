@@ -7,7 +7,7 @@ function Navbar({ onJoinClick }) {
     <nav className="navbar">
       <div className="navbar__inner">
         <div className="navbar__logo">
-          <i className="fa-solid fa-brain"></i>
+          <img src="/brain.svg" alt="The Predictor logo" className="navbar__logo-img" />
           The Predictor
         </div>
 
