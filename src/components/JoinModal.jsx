@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
 
+const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+
 function JoinModal({ onClose }) {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const handleEsc = (e) => {
@@ -16,9 +20,22 @@ function JoinModal({ onClose }) {
     };
   }, [onClose]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email) setSubmitted(true);
+    if (!email) return;
+    setSubmitting(true);
+    setError('');
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify({ email }),
+      });
+      setSubmitted(true);
+    } catch (err) {
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -49,11 +66,12 @@ function JoinModal({ onClose }) {
                 required
                 autoFocus
               />
-              <button type="submit" className="btn-glow" style={{ width: '100%', justifyContent: 'center' }}>
-                Notify Me
+              <button type="submit" className="btn-glow" style={{ width: '100%', justifyContent: 'center' }} disabled={submitting}>
+                {submitting ? 'Submitting...' : 'Notify Me'}
               </button>
             </form>
-            <small>We respect your privacy. No spam, ever.</small>
+            {error && <small style={{ color: '#ff6b6b' }}>{error}</small>}
+            {!error && <small>We respect your privacy. No spam, ever.</small>}
           </>
         ) : (
           <>
